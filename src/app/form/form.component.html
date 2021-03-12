@@ -1,0 +1,42 @@
+<div class="card mt-3">
+    <div class="card-body">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label class="col-md-4">Title</label>
+                <input type="title" class="form-control" formControlName="title" #title />
+                <div *ngIf="productForm.controls['title'].invalid && (productForm.controls['title'].dirty || productForm.controls['title'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="productForm.controls['title'].errors">
+                        Title is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Title</label>
+                <input type="text" class="form-control" formControlName="text" #text />
+                <div *ngIf="productForm.controls['text'].invalid && (productForm.controls['text'].dirty || productForm.controls['text'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="productForm.controls['text'].errors">
+                        text is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">name</label>
+                <input type="text" class="form-control" formControlName="name" #name />
+                <div *ngIf="productForm.controls['name'].invalid && (productForm.controls['name'].dirty || productForm.controls['name'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="productForm.controls['name'].errors">
+                        name is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary mr-1"
+                    [disabled]="productForm.pristine || productForm.invalid">Submit
+                </button>
+                <button class="btn btn-primary" (click)="clearForm()">Clear</button>
+            </div>
+        </form>
+    </div>
+</div>
